@@ -6,6 +6,7 @@ import About from './pages/About'
 import Policy from './pages/Policy'
 import Contact from './pages/Contact'
 import PageNotFound from './pages/PageNotFound'
+import Category from './pages/Category'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
    <Route path='/' element={<Home/> }/>
    <Route path='/about' element={<About/> }/>
    <Route path='/policy' element={<Policy/> }/>
+   <Route path='/category' element={<Category/> }/>
    <Route path='/contact' element={<Contact/> }/>
    <Route path='/*' element={<PageNotFound/> }/>
    </Routes>
