@@ -7,6 +7,8 @@ import Policy from './pages/Policy'
 import Contact from './pages/Contact'
 import PageNotFound from './pages/PageNotFound'
 import Category from './pages/Category'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
 
 const App = () => {
   return (
@@ -17,6 +19,11 @@ const App = () => {
    <Route path='/category' element={<Category/> }/>
    <Route path='/contact' element={<Contact/> }/>
    <Route path='/*' element={<PageNotFound/> }/>
+   <Route path='/login' element={<Login/> }/>
+   <Route path='/register' element={<Register/> }/>
+
+
+  
    </Routes>
   )
 }
