@@ -1,6 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../Context/auth'
 const Header = () => {
+
+  const [auth,setAuth]=useAuth()
+
+
+  const HandleLogout=()=>{
+    setAuth({
+      ...auth,
+      user:null,token:''
+      
+    })
+    localStorage.removeItem('auth')
+  }
   return (
     <>
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -19,12 +32,21 @@ const Header = () => {
         <li className="nav-item">
           <NavLink to='/category' className="nav-link " aria-current="page">Category</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink to='/register' className="nav-link " aria-current="page">Register</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to='/login' className="nav-link " aria-current="page">Login</NavLink>
-        </li>
+        {
+          !auth.user ?(<>
+            <li className="nav-item">
+              <NavLink to='/register' className="nav-link " aria-current="page">Register</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to='/login' className="nav-link " aria-current="page">Login</NavLink>
+            </li>
+            </>)
+            :(<>
+              <li className="nav-item">
+              <NavLink to='/login' className="nav-link " aria-current="page" onClick={HandleLogout}>Logout</NavLink>
+            </li>
+              </>)
+        }
         <li className="nav-item">
           <NavLink to='/cart' className="nav-link " aria-current="page">Cart (0) </NavLink>
         </li>
