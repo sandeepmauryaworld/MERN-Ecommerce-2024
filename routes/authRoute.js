@@ -10,7 +10,7 @@ import {
 //   orderStatusController,
 
 } from "../controller/authController.js";
-// import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
 const router = express.Router();
@@ -29,9 +29,9 @@ router.post("/login", loginController);
 // router.get("/test", requireSignIn, isAdmin, testController);
 
 // //protected User route auth
-// router.get("/user-auth", requireSignIn, (req, res) => {
-//   res.status(200).send({ ok: true });
-// });
+router.get("/user-auth", requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 // //protected Admin route auth
 // router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 //   res.status(200).send({ ok: true });

@@ -9,6 +9,8 @@ import PageNotFound from './pages/PageNotFound'
 import Category from './pages/Category'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
+import Dashboard from './pages/user/Dashboard'
+import PrivateRoute from './components/Routes/Private'
 
 const App = () => {
   return (
@@ -21,6 +23,11 @@ const App = () => {
    <Route path='/*' element={<PageNotFound/> }/>
    <Route path='/login' element={<Login/> }/>
    <Route path='/register' element={<Register/> }/>
+   <Route path='/dashboard' element={<PrivateRoute/> }>
+   <Route path='' element={<Dashboard/> }/>
+   
+   </Route>
+
 
 
   
